@@ -83,7 +83,15 @@ export default {
         },
         shiny: function(){
             this.isShiny = !this.isShiny; 
-            console.log("Shiny");
+            if(this.isFront === true && this.isShiny == false){
+                this.currentImg = this.pokemon.front;
+            }else if(this.isFront === false && this.isShiny == false){
+                this.currentImg = this.pokemon.back;
+            }else if(this.isFront === true && this.isShiny == true){
+                this.currentImg = this.pokemon.front_shiny;
+            }else{
+                this.currentImg = this.pokemon.back_shiny;
+            }
         }
     }
 }
